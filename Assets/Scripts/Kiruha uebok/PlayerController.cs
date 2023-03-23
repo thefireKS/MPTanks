@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private float speed = 5;
     private PhotonView view;
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
         view = GetComponent<PhotonView>();
     }
 
-    void Update()
+    private void Update()
     {
         if (view.IsMine)
         {
