@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private float speed = 5;
-    private PhotonView view;
+    protected PhotonView view;
 
     private void Start()
     {

@@ -1,54 +1,59 @@
 using System;
-using ExitGames.Client.Photon;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using Random = UnityEngine.Random;
 
 public class TankSetter : CustomTankCreator, IPunObservable
 {
     private Color colorOption;
 
-    private Player player;
-
-    private void OnPhotonInstantiate(PhotonMessageInfo info)
+    public Player Player { get; private set; }
+    
+    private void SetPlayerInfo(Player player)
     {
-        object[] instantiationData = info.photonView.InstantiationData;
+        Player = player;
+        SetTextures(player);
+    }
 
-        colorOption = new Color((float) instantiationData[0], (float) instantiationData[1],
-            (float) instantiationData[2]);
-        string baseOption = (string) instantiationData[3];
-        string towerOption = (string) instantiationData[4];
+    public override void OnPlayerPropertiesUpdate(Player target, ExitGames.Client.Photon.Hashtable changedProps)
+    {
+        base.OnPlayerPropertiesUpdate(target,changedProps);
+        if (target != null || target == Player)
+        {
+            if(changedProps.ContainsKey("R")&&changedProps.ContainsKey("G")&&changedProps.ContainsKey("B")&&changedProps.ContainsKey("tankBase")&&changedProps.ContainsKey("tankTower"))
+                SetTextures(target);
+        }
+    }
+    private void SetTextures(Player player)
+    {
+        float r = 0;
+        float g = 0;
+        float b = 0;
+        string _tankBase = null;
+        string _tankTower = null;
 
-        tankBase.color = colorOption;
-        tankBaseAnimator.runtimeAnimatorController = Array.Find(tankBases, s => s.name == baseOption);
-
-        tankTower.color = colorOption;
-        tankTower.sprite = Array.Find(tankTowers, s => s.name == towerOption);
+        if (player.CustomProperties.ContainsKey("R"))
+            r = (float) player.CustomProperties["R"];
+        if (player.CustomProperties.ContainsKey("G"))
+            g = (float) player.CustomProperties["G"];
+        if (player.CustomProperties.ContainsKey("B"))
+            b = (float) player.CustomProperties["B"];
+        
+        if (player.CustomProperties.ContainsKey("tankBase"))
+            _tankBase = (string) player.CustomProperties["tankBase"];
+        if (player.CustomProperties.ContainsKey("tankTower"))
+            _tankTower = (string) player.CustomProperties["tankTower"];
+        
+        var randColor = new Color(r, g, b);
+        tankBase.color = randColor;
+        tankBaseAnimator.runtimeAnimatorController = Array.Find(tankBases, s => s.name == _tankBase);
+        tankTower.color = randColor;
+        tankTower.sprite = Array.Find(tankTowers, s => s.name == _tankTower);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(tankBase.color.r);
-            stream.SendNext(tankBase.color.g);
-            stream.SendNext(tankBase.color.b);
-            stream.SendNext(tankBaseAnimator.runtimeAnimatorController.name);
-            stream.SendNext(tankTower.sprite.name);
-        }
-        else
-        {
-            colorOption = new Color((float) stream.ReceiveNext(), (float) stream.ReceiveNext(),
-                (float) stream.ReceiveNext());
-            tankBase.color = colorOption;
-            tankTower.color = colorOption;
-
-            string baseName = (string) stream.ReceiveNext();
-            tankBaseAnimator.runtimeAnimatorController = Array.Find(tankBases, s => s.name == baseName);
-
-            string towerName = (string) stream.ReceiveNext();
-            tankTower.sprite = Array.Find(tankTowers, s => s.name == towerName);
-        }
+        info.Sender.TagObject = gameObject;
+        SetPlayerInfo(info.Sender);
     }
 }

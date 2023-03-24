@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 657616520840420789}
   - component: {fileID: 1549067595729720935}
   - component: {fileID: 4059498896269052244}
-  - component: {fileID: 348168653865603541}
+  - component: {fileID: 2160381507336323527}
   - component: {fileID: 508939622453485294}
   m_Layer: 0
   m_Name: Tower
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecbacbe9f9122f5428aaba882b3ddac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &348168653865603541
+--- !u!114 &2160381507336323527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
     ExtrapolateNumberOfStoredPositions: 1
   m_RotationModel:
     SynchronizeEnabled: 1
-    InterpolateOption: 1
+    InterpolateOption: 0
     InterpolateRotateTowardsSpeed: 360
     InterpolateLerpSpeed: 5
   m_ScaleModel:
@@ -372,8 +372,8 @@ MonoBehaviour:
     ExtrapolateNumberOfStoredPositions: 1
   m_RotationModel:
     SynchronizeEnabled: 1
-    InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 360
+    InterpolateOption: 0
+    InterpolateRotateTowardsSpeed: 720
     InterpolateLerpSpeed: 5
   m_ScaleModel:
     SynchronizeEnabled: 0
