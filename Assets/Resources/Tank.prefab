@@ -170,7 +170,6 @@ GameObject:
   - component: {fileID: 1307616988327365065}
   - component: {fileID: 2629198365511513031}
   - component: {fileID: 1307616988327365070}
-  - component: {fileID: -5349947889882133608}
   - component: {fileID: 3942013537340381202}
   m_Layer: 0
   m_Name: Tank
@@ -344,23 +343,11 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 7291357600479421183}
-  - {fileID: -5349947889882133608}
+  - {fileID: 0}
+  - {fileID: 3942013537340381202}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-5349947889882133608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307616988327365061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35144820bcc25444bb8f0fd767d9423e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SmoothingDelay: 5
 --- !u!114 &3942013537340381202
 MonoBehaviour:
   m_ObjectHideFlags: 0
