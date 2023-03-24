@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 657616520840420789}
   - component: {fileID: 1549067595729720935}
   - component: {fileID: 4059498896269052244}
-  - component: {fileID: 348168653865603541}
+  - component: {fileID: 2160381507336323527}
   - component: {fileID: 508939622453485294}
   m_Layer: 0
   m_Name: Tower
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecbacbe9f9122f5428aaba882b3ddac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &348168653865603541
+--- !u!114 &2160381507336323527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
     ExtrapolateNumberOfStoredPositions: 1
   m_RotationModel:
     SynchronizeEnabled: 1
-    InterpolateOption: 1
+    InterpolateOption: 0
     InterpolateRotateTowardsSpeed: 360
     InterpolateLerpSpeed: 5
   m_ScaleModel:
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 1307616988327365065}
   - component: {fileID: 2629198365511513031}
   - component: {fileID: 1307616988327365070}
-  - component: {fileID: 1837140367945647805}
+  - component: {fileID: 3942013537340381202}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -343,11 +343,12 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 7291357600479421183}
-  - {fileID: 1837140367945647805}
+  - {fileID: 0}
+  - {fileID: 3942013537340381202}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1837140367945647805
+--- !u!114 &3942013537340381202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,27 +357,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1307616988327365061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PositionModel:
-    SynchronizeEnabled: 1
-    TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 2
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
-    ExtrapolateOption: 0
-    ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
-    ExtrapolateNumberOfStoredPositions: 1
-  m_RotationModel:
-    SynchronizeEnabled: 1
-    InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 360
-    InterpolateLerpSpeed: 5
-  m_ScaleModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 0
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
