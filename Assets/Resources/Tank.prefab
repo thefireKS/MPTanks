@@ -148,7 +148,7 @@ MonoBehaviour:
   m_RotationModel:
     SynchronizeEnabled: 1
     InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 180
+    InterpolateRotateTowardsSpeed: 360
     InterpolateLerpSpeed: 5
   m_ScaleModel:
     SynchronizeEnabled: 0
@@ -165,6 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1307616988327365067}
   - component: {fileID: 1307616988327365064}
+  - component: {fileID: 7291357600479421183}
   - component: {fileID: 1307616988327365066}
   - component: {fileID: 1307616988327365065}
   - component: {fileID: 2629198365511513031}
@@ -203,6 +204,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2a97c9cb38500a4fa153bcf6b8fb129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankBase: {fileID: 1307616988327365066}
+  tankTower: {fileID: 1549067595729720935}
+  tankBaseAnimator: {fileID: 1307616988327365065}
+  tankBases:
+  - {fileID: 22100000, guid: 7b118dfb370b2744ea72e32cebd6d3cc, type: 2}
+  - {fileID: 22100000, guid: 4a10c39f0991a9340816a9f77b461fb3, type: 2}
+  - {fileID: 22100000, guid: 4f8e749572118814fb04f6683da6137e, type: 2}
+  tankTowers:
+  - {fileID: 21300000, guid: 052a725bd47e3854d8642a05e0904a62, type: 3}
+  - {fileID: 21300000, guid: c9749ac2940e0cf498de739696eadfb2, type: 3}
+--- !u!114 &7291357600479421183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307616988327365061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4406e7ca3505ee849a333333bad0253a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tankBase: {fileID: 1307616988327365066}
@@ -319,8 +342,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 7291357600479421183}
   - {fileID: 1837140367945647805}
-  - {fileID: 508939622453485294}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -350,7 +373,7 @@ MonoBehaviour:
   m_RotationModel:
     SynchronizeEnabled: 1
     InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 180
+    InterpolateRotateTowardsSpeed: 360
     InterpolateLerpSpeed: 5
   m_ScaleModel:
     SynchronizeEnabled: 0
