@@ -1,4 +1,3 @@
-using System;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using UnityEngine;
@@ -32,6 +31,7 @@ public class CustomTankCreator : MonoBehaviourPunCallbacks
         
         PhotonNetwork.AddCallbackTarget(this);
         
+        if(!view.IsMine) return;
         InitializeTexturesAndColor();
     }
 
@@ -51,8 +51,8 @@ public class CustomTankCreator : MonoBehaviourPunCallbacks
         _customProperties["tankBase"] = randomBase;
         _customProperties["tankTower"] = randomTower;
         
+        if(!view.IsMine) return;
         PhotonNetwork.SetPlayerCustomProperties(_customProperties);
         //view.RPC("SetTexturesAndColor", RpcTarget.All, r, g, b, randomBase, randomTower);
     }
-    
 }

@@ -20,10 +20,12 @@ public class TankSetter : CustomTankCreator, IPunObservable
         base.OnPlayerPropertiesUpdate(target,changedProps);
         if (target != null || target == Player)
         {
-            if(changedProps.ContainsKey("R")&&changedProps.ContainsKey("G")&&changedProps.ContainsKey("B")&&changedProps.ContainsKey("tankBase")&&changedProps.ContainsKey("tankTower"))
+            if(changedProps.ContainsKey("R") && changedProps.ContainsKey("G") && changedProps.ContainsKey("B")
+               && changedProps.ContainsKey("tankBase") && changedProps.ContainsKey("tankTower"))
                 SetTextures(target);
         }
     }
+    
     private void SetTextures(Player player)
     {
         float r = 0;
