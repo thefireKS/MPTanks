@@ -6,35 +6,48 @@ public class PlayerController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private float speed = 5;
     private Rigidbody2D _rigidbody2D;
-    protected PhotonView view;
+    private PhotonView view;
+    private Animator animator;
+
+    private bool isControllable = true;
+    private float controlTimer = 0f;
 
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         view = GetComponent<PhotonView>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (view.IsMine)
-        {
-            
-            Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            Vector2 moveAmount = moveInput.normalized * speed;
-            
-            _rigidbody2D.velocity = moveAmount;
-            
-            //transform.position += (Vector3)moveAmount;
-            
-            if(moveInput.x == 0 && moveInput.y == 0) return;
-            
-            float rotationZ = Mathf.Atan2(moveInput.y,moveInput.x) * Mathf.Rad2Deg - 90f;
-            transform.rotation = Quaternion.Euler(0f,0f,rotationZ);
-        }
+        controlTimer += Time.deltaTime;
+        if (controlTimer > 0.5f)
+            isControllable = true;
+        if(controlTimer > 1f)
+            animator.SetBool("Respawn",false);
+        
+        if (!view.IsMine) return;
+        if (!isControllable) return;
+        
+        var moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        var moveAmount = moveInput.normalized * speed;
+        _rigidbody2D.velocity = moveAmount;
+        
+        animator.SetBool("IsMoving",moveInput.magnitude != 0);
+        
+        if(moveInput.x == 0 && moveInput.y == 0) return;
+        var rotationZ = Mathf.Atan2(moveInput.y,moveInput.x) * Mathf.Rad2Deg - 90f;
+        
+        transform.rotation = Quaternion.Euler(0f,0f,rotationZ);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-
+        if (!col.gameObject.CompareTag("Bullet")) return;
+        SpawnPlayers.Instance.TeleportPlayer(gameObject);
+        isControllable = false;
+        controlTimer = 0f;
+        animator.SetBool("Respawn",true);
     }
 }

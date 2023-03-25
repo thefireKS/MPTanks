@@ -8,7 +8,7 @@ public class TankSetter : CustomTankCreator, IPunObservable
     private Color colorOption;
 
     public Player Player { get; private set; }
-    
+
     private void SetPlayerInfo(Player player)
     {
         Player = player;
@@ -49,6 +49,7 @@ public class TankSetter : CustomTankCreator, IPunObservable
         var randColor = new Color(r, g, b);
         tankBase.color = randColor;
         tankBaseAnimator.runtimeAnimatorController = Array.Find(tankBases, s => s.name == _tankBase);
+        
         tankTower.color = randColor;
         tankTower.sprite = Array.Find(tankTowers, s => s.name == _tankTower);
     }

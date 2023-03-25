@@ -30,6 +30,4 @@ public class SpawnPlayers : MonoBehaviour
         var newPosition = Random.insideUnitCircle * spawnRadius;
         player.transform.position = newPosition;
     }
-
-    
 }

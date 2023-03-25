@@ -24,6 +24,7 @@ public class PlayerTower : MonoBehaviourPunCallbacks
         float rotationZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg - 90f;
             
         transform.rotation = Quaternion.Euler(0f,0f,rotationZ);
+        gunPoint.rotation = Quaternion.Euler(0f,0f,rotationZ + 90f);
 
         if (Input.GetButtonDown("Fire1"))
         {
