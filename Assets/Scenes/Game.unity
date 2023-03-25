@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158c5c486cb8c8e44b209612953997c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1307616988327365061, guid: 983f4c40c29f5554cbc915cce4f041bb, type: 3}
-  spawnRadius: 5
+  player: {fileID: 5512528804234235975, guid: a24971a2828c07e469d8738513435fc6, type: 3}
+  spawnRadius: 4.8
 --- !u!4 &1816091941
 Transform:
   m_ObjectHideFlags: 0

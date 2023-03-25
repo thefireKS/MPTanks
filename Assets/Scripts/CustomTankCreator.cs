@@ -12,7 +12,7 @@ public class CustomTankCreator : MonoBehaviourPunCallbacks
     [SerializeField] protected Sprite[] tankTowers;
 
     private float r, g, b;
-    private PhotonView view;
+    protected PhotonView view;
 
     private string randomBase, randomTower;
 

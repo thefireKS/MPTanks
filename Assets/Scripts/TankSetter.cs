@@ -2,12 +2,19 @@ using System;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 
 public class TankSetter : CustomTankCreator, IPunObservable
 {
+    [SerializeField] private TMP_Text nickname;
+    
     private Color colorOption;
-
     public Player Player { get; private set; }
+
+    private void Start()
+    {
+        nickname.text = view.IsOwnerActive ? PhotonNetwork.NickName : view.Owner.NickName;
+    }
 
     private void SetPlayerInfo(Player player)
     {

@@ -5,8 +5,15 @@ using TMPro;
 
 public class MainMenu : MonoBehaviourPunCallbacks
 {
+    [SerializeField] private TMP_InputField nicknameField;
+    [Space(5)]
     [SerializeField] private TMP_InputField createField;
     [SerializeField] private TMP_InputField joinField;
+
+    public void ChangeName()
+    {
+        PhotonNetwork.NickName = nicknameField.text;
+    }
 
     public void CreateRoom()
     {
