@@ -22,7 +22,8 @@ public class CustomTankCreator : MonoBehaviourPunCallbacks
         {"G", (float)1f},
         {"B", (float)1f},
         {"tankBase", (string)"Base1"},
-        {"tankTower", (string)"gun1"}
+        {"tankTower", (string)"gun1"},
+        {"nickname", (string)"Player"}
     };
 
     public override void OnEnable()
@@ -50,6 +51,8 @@ public class CustomTankCreator : MonoBehaviourPunCallbacks
 
         _customProperties["tankBase"] = randomBase;
         _customProperties["tankTower"] = randomTower;
+
+        _customProperties["nickname"] = PhotonNetwork.NickName;
         
         if(!view.IsMine) return;
         PhotonNetwork.SetPlayerCustomProperties(_customProperties);

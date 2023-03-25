@@ -11,11 +11,6 @@ public class TankSetter : CustomTankCreator, IPunObservable
     private Color colorOption;
     public Player Player { get; private set; }
 
-    private void Start()
-    {
-        nickname.text = view.IsMine ? PhotonNetwork.NickName : view.Owner.NickName;
-    }
-
     private void SetPlayerInfo(Player player)
     {
         Player = player;
@@ -52,6 +47,9 @@ public class TankSetter : CustomTankCreator, IPunObservable
             _tankBase = (string) player.CustomProperties["tankBase"];
         if (player.CustomProperties.ContainsKey("tankTower"))
             _tankTower = (string) player.CustomProperties["tankTower"];
+
+        if (player.CustomProperties.ContainsKey("nickname"))
+            nickname.text = (string) player.CustomProperties["nickname"];
         
         var randColor = new Color(r, g, b);
         tankBase.color = randColor;
