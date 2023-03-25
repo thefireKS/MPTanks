@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             
             Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            Vector2 moveAmount = moveInput.normalized * (speed * Time.deltaTime);
+            Vector2 moveAmount = moveInput.normalized * speed;
+            
             _rigidbody2D.velocity = moveAmount;
             
             //transform.position += (Vector3)moveAmount;
@@ -34,6 +35,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        throw new NotImplementedException();
+
     }
 }
