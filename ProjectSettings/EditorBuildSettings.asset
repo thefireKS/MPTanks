@@ -15,12 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene2.unity
     guid: 17877f854a050754db876a9add51b116
   - enabled: 1
-    path: Assets/Scenes/Kiruha uebok/Loading.unity
+    path: Assets/Scenes/Loading.unity
     guid: d04d3f567a0b7d44a8c790b83fa7a17f
   - enabled: 1
-    path: Assets/Scenes/Kiruha uebok/MainMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 9b0c7f6ae2e1af24b9708cb0cbe15b4a
   - enabled: 1
-    path: Assets/Scenes/Kiruha uebok/Game.unity
+    path: Assets/Scenes/Game.unity
     guid: 558dbe21dc548a04892ad0691c3e34d8
   m_configObjects: {}
