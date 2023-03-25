@@ -13,7 +13,7 @@ public class TankSetter : CustomTankCreator, IPunObservable
 
     private void Start()
     {
-        nickname.text = view.IsOwnerActive ? PhotonNetwork.NickName : view.Owner.NickName;
+        nickname.text = view.IsMine ? PhotonNetwork.NickName : view.Owner.NickName;
     }
 
     private void SetPlayerInfo(Player player)
