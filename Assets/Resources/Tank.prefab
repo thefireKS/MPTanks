@@ -277,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4900585585467366226}
   - component: {fileID: 4900585585467366225}
+  - component: {fileID: 3681671813584253030}
   - component: {fileID: 4900585585467366227}
   - component: {fileID: 4900585585467366224}
   - component: {fileID: 4900585585467366231}
@@ -315,6 +316,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2a97c9cb38500a4fa153bcf6b8fb129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankBase: {fileID: 4900585585467366227}
+  tankTower: {fileID: 4852790073393120510}
+  tankBaseAnimator: {fileID: 4900585585467366224}
+  tankBases:
+  - {fileID: 22100000, guid: 7b118dfb370b2744ea72e32cebd6d3cc, type: 2}
+  - {fileID: 22100000, guid: 4a10c39f0991a9340816a9f77b461fb3, type: 2}
+  - {fileID: 22100000, guid: 4f8e749572118814fb04f6683da6137e, type: 2}
+  tankTowers:
+  - {fileID: 21300000, guid: 052a725bd47e3854d8642a05e0904a62, type: 3}
+  - {fileID: 21300000, guid: c9749ac2940e0cf498de739696eadfb2, type: 3}
+--- !u!114 &3681671813584253030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4900585585467366236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4406e7ca3505ee849a333333bad0253a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tankBase: {fileID: 4900585585467366227}
@@ -419,7 +442,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 4900585585467366225}
+  - {fileID: 3681671813584253030}
   - {fileID: 5327811281324431754}
   sceneViewId: 0
   InstantiationId: 0
