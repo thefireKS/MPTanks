@@ -3,22 +3,22 @@ using Photon.Pun;
 
 public class PlayerTower : MonoBehaviourPunCallbacks
 {
-    private Camera mainCamera;
-    private PhotonView view;
+    [SerializeField] private Camera myCamera;
+    private PhotonView _view;
 
     [SerializeField] private Transform gunPoint;
 
     private void Start()
     {
-        view = GetComponent<PhotonView>();
-        mainCamera = Camera.main;
+        _view = GetComponent<PhotonView>();
+        if (!_view.IsMine) myCamera.enabled = false;
     }
 
     private void Update()
     {
-        if (!view.IsMine) return;
+        if (!_view.IsMine) return;
         
-        Vector3 diff = mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector3 diff = myCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         diff.Normalize();
 
         float rotationZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg - 90f;
