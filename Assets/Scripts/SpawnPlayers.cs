@@ -9,7 +9,7 @@ public class SpawnPlayers : MonoBehaviour
     
     [SerializeField] private GameObject player;
     [Space(5)]
-    [SerializeField] private float spawnRadius;
+    [SerializeField] private Transform[] spawnPositions;
 
     private GameObject _myPlayer;
 
@@ -21,13 +21,13 @@ public class SpawnPlayers : MonoBehaviour
 
     private void SpawnPlayer()
     {
-        var spawnPos = Random.insideUnitCircle * spawnRadius;
+        var spawnPos = spawnPositions[Random.Range(0, spawnPositions.Length)].position;
         _myPlayer = PhotonNetwork.Instantiate(player.name, spawnPos, quaternion.identity);
     }
     
     public void TeleportPlayer(GameObject player)
     {
-        var newPosition = Random.insideUnitCircle * spawnRadius;
+        var newPosition = spawnPositions[Random.Range(0, spawnPositions.Length)].position;
         player.transform.position = newPosition;
     }
 }
