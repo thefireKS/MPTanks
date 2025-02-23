@@ -5,12 +5,10 @@ using TMPro;
 
 public class MainMenu : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private TMP_InputField nicknameField;
-    [Space(5)]
     [SerializeField] private TMP_InputField createField;
     [SerializeField] private TMP_InputField joinField;
 
-    public void ChangeName()
+    public void ChangeName(TMP_InputField nicknameField)
     {
         PhotonNetwork.NickName = nicknameField.text;
     }
@@ -18,7 +16,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     public void CreateRoom()
     {
         if (createField.text == null) return;
-
+        
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.BroadcastPropsChangeToAll = true;
         roomOptions.MaxPlayers = 6;
@@ -30,6 +28,11 @@ public class MainMenu : MonoBehaviourPunCallbacks
         if(joinField.text == null) return;
         
         PhotonNetwork.JoinRoom(joinField.text);
+    }
+    
+    public void QuickMatch()
+    {
+        PhotonNetwork.JoinRandomOrCreateRoom();
     }
 
     public override void OnJoinedRoom()
