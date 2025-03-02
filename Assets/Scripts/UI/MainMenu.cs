@@ -18,6 +18,8 @@ public class MainMenu : MonoBehaviourPunCallbacks
         if (createField.text == null) return;
         
         RoomOptions roomOptions = new RoomOptions();
+        roomOptions.IsOpen = true;
+        roomOptions.IsVisible = true;
         roomOptions.BroadcastPropsChangeToAll = true;
         roomOptions.MaxPlayers = 6;
         PhotonNetwork.CreateRoom(createField.text, roomOptions);
