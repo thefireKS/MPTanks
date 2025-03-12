@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     public void ChangeName(TMP_InputField nicknameField)
     {
         PhotonNetwork.NickName = nicknameField.text;
+        CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["Nickname"] = nicknameField.text;
     }
 
     public void CreateRoom()

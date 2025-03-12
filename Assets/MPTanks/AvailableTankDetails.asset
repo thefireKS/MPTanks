@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f549745fcc12ff4887cac9b62e94070, type: 3}
+  m_Name: AvailableTankDetails
+  m_EditorClassIdentifier: 
+  tankWheels:
+  - {fileID: 2800000, guid: c9749ac2940e0cf498de739696eadfb2, type: 3}
+  - {fileID: 2800000, guid: 052a725bd47e3854d8642a05e0904a62, type: 3}
+  tankBase:
+  - {fileID: 2800000, guid: 307ca55364ef04f4097874407ea8ef9b, type: 3}
+  - {fileID: 2800000, guid: 79b72a7903a21bf459bfcda96e8b49f9, type: 3}
+  - {fileID: 2800000, guid: b12c6d79c0bc1c94c86cc408174c8708, type: 3}
+  tankTower:
+  - {fileID: 2800000, guid: 13548d8d0fcb5c44b8044ce08a99c697, type: 3}
+  - {fileID: 2800000, guid: 72708a25103c3fe4f9074f7296e86b7a, type: 3}
+  tankAmmo:
+  - {fileID: 2800000, guid: 45f6949088a71384a9cd62dc64644e85, type: 3}

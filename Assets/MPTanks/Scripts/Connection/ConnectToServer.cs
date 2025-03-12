@@ -21,6 +21,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public void ChangeName(TMP_InputField nicknameField)
     {
         PhotonNetwork.NickName = nicknameField.text;
+        CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["Nickname"] = nicknameField.text;
     }
     
     public void ChangeNameAndConnect(TMP_InputField nicknameField)

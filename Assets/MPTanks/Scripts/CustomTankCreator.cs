@@ -16,16 +16,6 @@ public class CustomTankCreator : MonoBehaviourPunCallbacks
 
     private string randomBase, randomTower;
 
-    private Hashtable _customProperties = new Hashtable
-    {
-        {"R", (float)1f},
-        {"G", (float)1f},
-        {"B", (float)1f},
-        {"tankBase", (string)"Base1"},
-        {"tankTower", (string)"gun1"},
-        {"nickname", (string)"Player"}
-    };
-
     public override void OnEnable()
     {
         view = GetComponent<PhotonView>();
@@ -45,17 +35,17 @@ public class CustomTankCreator : MonoBehaviourPunCallbacks
         randomBase = tankBases[Random.Range(0, tankBases.Length)].name;
         randomTower = tankTowers[Random.Range(0, tankTowers.Length)].name;
 
-        _customProperties["R"] = r;
-        _customProperties["G"] = g;
-        _customProperties["B"] = b;
+        CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["R"] = r;
+        CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["G"] = g;
+        CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["B"] = b;
 
-        _customProperties["tankBase"] = randomBase;
-        _customProperties["tankTower"] = randomTower;
+        CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["tankBase"] = randomBase;
+        CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["tankTower"] = randomTower;
 
-        _customProperties["nickname"] = PhotonNetwork.NickName;
+        CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["nickname"] = PhotonNetwork.NickName;
         
         if(!view.IsMine) return;
-        PhotonNetwork.SetPlayerCustomProperties(_customProperties);
+        PhotonNetwork.SetPlayerCustomProperties(CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable);
         //view.RPC("SetTexturesAndColor", RpcTarget.All, r, g, b, randomBase, randomTower);
     }
 }

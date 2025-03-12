@@ -11,6 +11,6 @@ public class SettingsMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        nicknameInputField.text = PhotonNetwork.NickName;
+        nicknameInputField.text = CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["Nickname"].ToString();
     }
 }
