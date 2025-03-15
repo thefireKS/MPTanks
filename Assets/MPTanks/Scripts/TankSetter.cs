@@ -9,6 +9,7 @@ public class TankSetter : CustomTankCreator, IPunObservable
     [SerializeField] private TMP_Text nickname;
     
     private Color colorOption;
+    private static readonly int InputColor = Shader.PropertyToID("_InputColor");
     public Player Player { get; private set; }
 
     private void SetPlayerInfo(Player player)
@@ -27,6 +28,7 @@ public class TankSetter : CustomTankCreator, IPunObservable
     private void SetTextures(Player player)
     {
         Debug.Log($"Setting {player.NickName}'s textures");
+        var mat = new Material(colorOverrideMaterial);
         
         float r = 0;
         float g = 0;
@@ -62,9 +64,11 @@ public class TankSetter : CustomTankCreator, IPunObservable
         
         var propColor = new Color(r, g, b);
         
-        tankWheels.color = propColor;
-        tankBase.color = propColor;
-        tankTower.color = propColor;
+        mat.SetColor(InputColor,propColor);
+        
+        tankWheels.material = mat;
+        tankBase.material = mat;
+        tankTower.material = mat;
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

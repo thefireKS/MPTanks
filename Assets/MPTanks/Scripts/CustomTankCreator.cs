@@ -9,6 +9,8 @@ public class CustomTankCreator : MonoBehaviourPunCallbacks
     [SerializeField] protected SpriteRenderer tankBase;
     [SerializeField] protected SpriteRenderer tankTower;
 
+    [SerializeField] protected Material colorOverrideMaterial;
+
     private PhotonView view;
     
 

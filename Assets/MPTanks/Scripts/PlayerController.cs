@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Transform tankRenderer;
+    [SerializeField] private GameObject camera;
     [Space(5)]
     [SerializeField] private float speed = 5;
     private Rigidbody2D _rigidbody2D;
@@ -21,11 +22,18 @@ public class PlayerController : MonoBehaviourPunCallbacks
         //animator = tankRenderer.GetComponent<Animator>();
     }
 
+    public override void OnConnected()
+    {
+        base.OnConnected();
+        if(!photonView.IsMine)
+            Destroy(camera);
+    }
+
     private void Update()
     {
-        controlTimer += Time.deltaTime;
-        if (controlTimer > 0.5f)
-            isControllable = true;
+        //controlTimer += Time.deltaTime;
+        //if (controlTimer > 0.5f)
+        //isControllable = true;
         //if(controlTimer > 1f)
             //animator.SetBool("Respawn",false);
         
