@@ -20,43 +20,51 @@ public class TankSetter : CustomTankCreator, IPunObservable
     public override void OnPlayerPropertiesUpdate(Player target, ExitGames.Client.Photon.Hashtable changedProps)
     {
         base.OnPlayerPropertiesUpdate(target,changedProps);
-        if (target != null || target == Player)
-        {
-            if(changedProps.ContainsKey("R") && changedProps.ContainsKey("G") && changedProps.ContainsKey("B")
-               && changedProps.ContainsKey("tankBase") && changedProps.ContainsKey("tankTower"))
-                SetTextures(target);
-        }
+        if (target == null && null != Player) return;
+            SetTextures(target);
     }
     
     private void SetTextures(Player player)
     {
+        Debug.Log($"Setting {player.NickName}'s textures");
+        
         float r = 0;
         float g = 0;
         float b = 0;
-        string _tankBase = null;
-        string _tankTower = null;
 
-        if (player.CustomProperties.ContainsKey("R"))
-            r = (float) player.CustomProperties["R"];
-        if (player.CustomProperties.ContainsKey("G"))
-            g = (float) player.CustomProperties["G"];
-        if (player.CustomProperties.ContainsKey("B"))
-            b = (float) player.CustomProperties["B"];
-        
-        if (player.CustomProperties.ContainsKey("tankBase"))
-            _tankBase = (string) player.CustomProperties["tankBase"];
-        if (player.CustomProperties.ContainsKey("tankTower"))
-            _tankTower = (string) player.CustomProperties["tankTower"];
+        if (player.CustomProperties.ContainsKey("Red"))
+            r = (float) player.CustomProperties["Red"];
+        if (player.CustomProperties.ContainsKey("Green"))
+            g = (float) player.CustomProperties["Green"];
+        if (player.CustomProperties.ContainsKey("Blue"))
+            b = (float) player.CustomProperties["Blue"];
 
-        if (player.CustomProperties.ContainsKey("nickname"))
-            nickname.text = (string) player.CustomProperties["nickname"];
+        if (player.CustomProperties.ContainsKey("TankWheels"))
+        {
+            var wheels = (int) player.CustomProperties["TankWheels"];
+            tankWheels.sprite = CurrentCustomPlayerPropertiesHandler.instance.playerProperties.tankWheels[wheels];
+        }
         
-        var randColor = new Color(r, g, b);
-        tankBase.color = randColor;
-        tankBaseAnimator.runtimeAnimatorController = Array.Find(tankBases, s => s.name == _tankBase);
+        if (player.CustomProperties.ContainsKey("TankBase"))
+        {
+            var tbase = (int) player.CustomProperties["TankBase"];
+            tankBase.sprite = CurrentCustomPlayerPropertiesHandler.instance.playerProperties.tankBase[tbase];
+        }
         
-        tankTower.color = randColor;
-        tankTower.sprite = Array.Find(tankTowers, s => s.name == _tankTower);
+        if (player.CustomProperties.ContainsKey("TankTower"))
+        {
+            var tower = (int)player.CustomProperties["TankTower"];
+            tankTower.sprite = CurrentCustomPlayerPropertiesHandler.instance.playerProperties.tankTower[tower];
+        }
+
+        if (player.CustomProperties.ContainsKey("Nickname"))
+            nickname.text = (string) player.CustomProperties["Nickname"];
+        
+        var propColor = new Color(r, g, b);
+        
+        tankWheels.color = propColor;
+        tankBase.color = propColor;
+        tankTower.color = propColor;
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private float speed = 5;
     private Rigidbody2D _rigidbody2D;
     private PhotonView view;
-    private Animator animator;
+    //private Animator animator;
 
     private bool isControllable = true;
     private float controlTimer = 0f;
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         view = tankRenderer.GetComponent<PhotonView>();
-        animator = tankRenderer.GetComponent<Animator>();
+        //animator = tankRenderer.GetComponent<Animator>();
     }
 
     private void Update()
@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         controlTimer += Time.deltaTime;
         if (controlTimer > 0.5f)
             isControllable = true;
-        if(controlTimer > 1f)
-            animator.SetBool("Respawn",false);
+        //if(controlTimer > 1f)
+            //animator.SetBool("Respawn",false);
         
         if (!view.IsMine) return;
         if (!isControllable) return;
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         var moveAmount = moveInput.normalized * speed;
         _rigidbody2D.velocity = moveAmount;
         
-        animator.SetBool("IsMoving",moveInput.magnitude != 0);
+        //animator.SetBool("IsMoving",moveInput.magnitude != 0);
         
         if(moveInput.x == 0 && moveInput.y == 0) return;
         var rotationZ = Mathf.Atan2(moveInput.y,moveInput.x) * Mathf.Rad2Deg - 90f;
@@ -50,6 +50,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
         SpawnPlayers.Instance.TeleportPlayer(gameObject);
         isControllable = false;
         controlTimer = 0f;
-        animator.SetBool("Respawn",true);
+        //animator.SetBool("Respawn",true);
     }
 }

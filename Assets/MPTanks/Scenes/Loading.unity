@@ -1307,6 +1307,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerProperties: {fileID: 11400000, guid: 559514f0b722c97428731bed675b8c74, type: 2}
+  red: 0
+  green: 0
+  blue: 0
+  tankTower: 0
+  tankBase: 0
+  tankWheels: 0
+  tankAmmo: 0
 --- !u!4 &1710513241
 Transform:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     {
         loadingWindow.SetActive(false);
         firstTimeNicknameWindow.SetActive(true);
+        CurrentCustomPlayerPropertiesHandler.instance.SetPlayerRandomProperties();
     }
     
     public void ChangeName(TMP_InputField nicknameField)

@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerCustomProperties : ScriptableObject
 {
     [Header("Tank Body")]
-    public Texture[] tankWheels;
-    public Texture[] tankBase;
-    public Texture[] tankTower;
+    public Sprite[] tankWheels;
+    public Sprite[] tankBase;
+    public Sprite[] tankTower;
     [Header("Tank Ammo"),Space(10)]
-    public Texture[] tankAmmo;
+    public Sprite[] tankAmmo;
 }

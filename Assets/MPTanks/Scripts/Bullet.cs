@@ -11,15 +11,16 @@ public class Bullet : MonoBehaviourPun
     {
         _view = GetComponent<PhotonView>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        var color = new Color((float)_view.Owner.CustomProperties["R"],(float)_view.Owner.CustomProperties["G"],
-            (float)_view.Owner.CustomProperties["B"]);
+        var color = new Color((float)_view.Owner.CustomProperties["Red"],(float)_view.Owner.CustomProperties["Green"],
+            (float)_view.Owner.CustomProperties["Blu"]);
         _spriteRenderer.color = color;
+        
+        Destroy(gameObject,5f);
     }
 
     private void Update()
     {
         transform.Translate(Vector2.right * (bulletSpeed * Time.deltaTime));
-        Destroy(gameObject,5f);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
