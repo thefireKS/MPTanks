@@ -11,6 +11,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        nicknameInputField.text = CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["Nickname"].ToString();
+        if(PlayerPrefs.HasKey("Nickname"))
+            nicknameInputField.text = CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["Nickname"].ToString();
     }
 }

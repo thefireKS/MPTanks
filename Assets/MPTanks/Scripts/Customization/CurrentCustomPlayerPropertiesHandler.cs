@@ -42,16 +42,45 @@ public class CurrentCustomPlayerPropertiesHandler : MonoBehaviour
         
         var randomAmmo = Random.Range(0, playerProperties.tankAmmo.Length);
         tankAmmo = randomAmmo;
+
+        UpdateHashtableProperties();
+    }
+
+    public void SetPlayerPropertiesFromPrefs()
+    {
+        red = PlayerPrefs.GetFloat("Red");
+        green = PlayerPrefs.GetFloat("Green");
+        blue = PlayerPrefs.GetFloat("Blue");
+
+        tankWheels = PlayerPrefs.GetInt("TankWheels");
+        tankBase = PlayerPrefs.GetInt("TankBase");
+        tankTower = PlayerPrefs.GetInt("TankTower");
+
+        tankAmmo = PlayerPrefs.GetInt("TankAmmo");
         
-        PlayerCustomPropertiesHashtable["Red"] = r;
-        PlayerCustomPropertiesHashtable["Green"] = g;
-        PlayerCustomPropertiesHashtable["Blue"] = b;
+        UpdateHashtableProperties();
+    }
 
-        PlayerCustomPropertiesHashtable["TankWheels"] = randomWheels;
-        PlayerCustomPropertiesHashtable["TankBase"] = randomBase;
-        PlayerCustomPropertiesHashtable["TankTower"] = randomTower;
+    private void UpdateHashtableProperties()
+    {
+        PlayerCustomPropertiesHashtable["Red"] = red;
+        PlayerCustomPropertiesHashtable["Green"] = green;
+        PlayerCustomPropertiesHashtable["Blue"] = blue;
 
-        PlayerCustomPropertiesHashtable["TankAmmo"] = randomAmmo;
+        PlayerPrefs.SetFloat("Red",red);
+        PlayerPrefs.SetFloat("Green",green);
+        PlayerPrefs.SetFloat("Blue",blue);
+        
+        PlayerCustomPropertiesHashtable["TankWheels"] = tankWheels;
+        PlayerCustomPropertiesHashtable["TankBase"] = tankBase;
+        PlayerCustomPropertiesHashtable["TankTower"] = tankTower;
+
+        PlayerCustomPropertiesHashtable["TankAmmo"] = tankAmmo;
+        
+        PlayerPrefs.SetInt("TankWheels",tankWheels);
+        PlayerPrefs.SetInt("TankBase",tankBase);
+        PlayerPrefs.SetInt("TankTower",tankTower);
+        PlayerPrefs.SetInt("TankAmmo",tankAmmo);
     }
     
     public readonly Hashtable PlayerCustomPropertiesHashtable = new()

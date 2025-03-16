@@ -15,19 +15,32 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         loadingWindow.SetActive(false);
-        firstTimeNicknameWindow.SetActive(true);
-        CurrentCustomPlayerPropertiesHandler.instance.SetPlayerRandomProperties();
+        if (PlayerPrefs.HasKey("Nickname"))
+        {
+            CurrentCustomPlayerPropertiesHandler.instance.SetPlayerPropertiesFromPrefs();
+            SceneManager.LoadScene("MainMenu");
+        }
+        else
+        {
+            firstTimeNicknameWindow.SetActive(true);
+            CurrentCustomPlayerPropertiesHandler.instance.SetPlayerRandomProperties();
+        }
     }
     
     public void ChangeName(TMP_InputField nicknameField)
     {
         PhotonNetwork.NickName = nicknameField.text;
         CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["Nickname"] = nicknameField.text;
+        
+        PlayerPrefs.SetString("Nickname",nicknameField.text);
     }
     
     public void ChangeNameAndConnect(TMP_InputField nicknameField)
     {
         PhotonNetwork.NickName = nicknameField.text;
+        CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["Nickname"] = nicknameField.text;
+        
+        PlayerPrefs.SetString("Nickname",nicknameField.text);
         SceneManager.LoadScene("MainMenu");
     }
 }
