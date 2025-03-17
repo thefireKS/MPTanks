@@ -28,16 +28,17 @@ public class SpawnPlayers : MonoBehaviour
 
     private void SetMap()
     {
-        foreach (var map in mapPool)
-        {
-            map.SetActive(false);
-        }
-
         var id = (int)PhotonNetwork.CurrentRoom.CustomProperties["Map"];
         
         
         _currentMapData = mapPool[id].GetComponent<MapData>();
         _currentMapData.gameObject.SetActive(true);
+        
+        foreach (var map in mapPool)
+        {
+            if(!map.activeSelf)
+                Destroy(map.gameObject);
+        }
     }
     
     public void TeleportPlayer(GameObject player)

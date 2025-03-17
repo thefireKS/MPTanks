@@ -150,7 +150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9084886950359110702
 Transform:
   m_ObjectHideFlags: 0
@@ -732,6 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankRenderer: {fileID: 4900585585467366226}
+  invulnerabilityShield: {fileID: 3879638613102323426}
   tankCollider: {fileID: 5003235663343527210}
   speed: 5
   invulnerabilityTime: 1

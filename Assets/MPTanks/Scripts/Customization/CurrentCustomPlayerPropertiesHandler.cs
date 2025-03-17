@@ -57,6 +57,8 @@ public class CurrentCustomPlayerPropertiesHandler : MonoBehaviour
         tankTower = PlayerPrefs.GetInt("TankTower");
 
         tankAmmo = PlayerPrefs.GetInt("TankAmmo");
+
+        PlayerCustomPropertiesHashtable["Nickname"] = PlayerPrefs.GetString("Nickname");
         
         UpdateHashtableProperties();
     }

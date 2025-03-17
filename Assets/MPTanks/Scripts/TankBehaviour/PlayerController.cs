@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 {
     [Header("Objects")]
     [SerializeField] private Transform tankRenderer;
+    [SerializeField] private GameObject invulnerabilityShield;
     [SerializeField] private BoxCollider2D tankCollider;
     [Space(10),Header("Numbers")]
     [SerializeField] private float speed = 5f;
@@ -48,11 +49,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private IEnumerator Invulnerability()
     {
+        _rigidbody2D.velocity = Vector2.zero;
         isControllable = false;
         tankCollider.enabled = false;
+        invulnerabilityShield.SetActive(true);
         yield return new WaitForSeconds(uncontrolledTime);
         isControllable = true;
         yield return new WaitForSeconds(invulnerabilityTime - uncontrolledTime);
         tankCollider.enabled = true;
+        invulnerabilityShield.SetActive(false);
     }
 }
