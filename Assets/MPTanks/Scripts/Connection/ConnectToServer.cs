@@ -30,7 +30,6 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public void ChangeName(TMP_InputField nicknameField)
     {
         PhotonNetwork.NickName = nicknameField.text;
-        CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["Nickname"] = nicknameField.text;
         
         PlayerPrefs.SetString("Nickname",nicknameField.text);
     }
@@ -38,7 +37,6 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public void ChangeNameAndConnect(TMP_InputField nicknameField)
     {
         PhotonNetwork.NickName = nicknameField.text;
-        CurrentCustomPlayerPropertiesHandler.instance.PlayerCustomPropertiesHashtable["Nickname"] = nicknameField.text;
         
         PlayerPrefs.SetString("Nickname",nicknameField.text);
         SceneManager.LoadScene("MainMenu");

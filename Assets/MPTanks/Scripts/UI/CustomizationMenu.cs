@@ -51,6 +51,11 @@ public class CustomizationMenu : MonoBehaviour
         tankWheels.rectTransform.sizeDelta = new Vector2(tankWheels.rectTransform.sizeDelta.x * extraWheelsScale,
             tankWheels.rectTransform.sizeDelta.y * extraWheelsScale);
     }
+
+    public void SaveParameters()
+    {
+        CurrentCustomPlayerPropertiesHandler.instance.UpdateHashtableProperties();
+    }
     
     public void SetActiveCategory(GameObject category)
     {

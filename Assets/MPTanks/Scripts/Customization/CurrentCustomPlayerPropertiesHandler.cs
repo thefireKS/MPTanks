@@ -1,4 +1,5 @@
 using System;
+using Photon.Pun;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -57,13 +58,11 @@ public class CurrentCustomPlayerPropertiesHandler : MonoBehaviour
         tankTower = PlayerPrefs.GetInt("TankTower");
 
         tankAmmo = PlayerPrefs.GetInt("TankAmmo");
-
-        PlayerCustomPropertiesHashtable["Nickname"] = PlayerPrefs.GetString("Nickname");
         
         UpdateHashtableProperties();
     }
 
-    private void UpdateHashtableProperties()
+    public void UpdateHashtableProperties()
     {
         PlayerCustomPropertiesHashtable["Red"] = red;
         PlayerCustomPropertiesHashtable["Green"] = green;
@@ -83,6 +82,8 @@ public class CurrentCustomPlayerPropertiesHandler : MonoBehaviour
         PlayerPrefs.SetInt("TankBase",tankBase);
         PlayerPrefs.SetInt("TankTower",tankTower);
         PlayerPrefs.SetInt("TankAmmo",tankAmmo);
+
+        PhotonNetwork.SetPlayerCustomProperties(PlayerCustomPropertiesHashtable);
     }
     
     public readonly Hashtable PlayerCustomPropertiesHashtable = new()
@@ -94,6 +95,5 @@ public class CurrentCustomPlayerPropertiesHandler : MonoBehaviour
         {"TankBase", 0},
         {"TankTower", 0},
         {"TankAmmo", 0},
-        {"Nickname", (string) "Player"}
     };
 }
