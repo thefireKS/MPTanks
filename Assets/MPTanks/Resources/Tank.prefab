@@ -361,7 +361,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4900585585467366226}
   - component: {fileID: 4900585585467366227}
-  - component: {fileID: 3681671813584253030}
   - component: {fileID: 4900585585467366231}
   - component: {fileID: 588658851617728605}
   - component: {fileID: 5003235663343527210}
@@ -441,23 +440,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3681671813584253030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4900585585467366236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4406e7ca3505ee849a333333bad0253a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tankWheels: {fileID: 5179876441434479452}
-  tankBase: {fileID: 4900585585467366227}
-  tankTower: {fileID: 4852790073393120510}
-  colorOverrideMaterial: {fileID: 2100000, guid: 884a57c1a78c3684e884464b53e14f0f, type: 2}
-  nickname: {fileID: 2895185792340290380}
 --- !u!114 &4900585585467366231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,6 +671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5512528804234235969}
   - component: {fileID: 5512528804234235968}
+  - component: {fileID: 2161457350989105186}
   - component: {fileID: 7881112374550500343}
   - component: {fileID: 8192184921015187697}
   - component: {fileID: 428876011382780108}
@@ -736,6 +719,23 @@ MonoBehaviour:
   speed: 5
   invulnerabilityTime: 1
   uncontrolledTime: 0.6
+--- !u!114 &2161457350989105186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512528804234235975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519b62d8be64df645ac94ca133833b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: {fileID: 2895185792340290380}
+  tankWheels: {fileID: 5179876441434479452}
+  tankBase: {fileID: 4900585585467366227}
+  tankTower: {fileID: 4852790073393120510}
+  colorOverrideMaterial: {fileID: 2100000, guid: 884a57c1a78c3684e884464b53e14f0f, type: 2}
 --- !u!114 &7881112374550500343
 MonoBehaviour:
   m_ObjectHideFlags: 0

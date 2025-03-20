@@ -5646,7 +5646,7 @@ GameObject:
   - component: {fileID: 1816091941}
   - component: {fileID: 1816091940}
   m_Layer: 0
-  m_Name: PlayerSpawn
+  m_Name: PlayerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
