@@ -58,6 +58,8 @@ public class CurrentCustomPlayerPropertiesHandler : MonoBehaviour
         tankTower = PlayerPrefs.GetInt("TankTower");
 
         tankAmmo = PlayerPrefs.GetInt("TankAmmo");
+
+        PhotonNetwork.NickName = PlayerPrefs.GetString("Nickname");
         
         UpdateHashtableProperties();
     }

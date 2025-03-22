@@ -10,6 +10,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     private void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.ConnectToRegion("EU");
     }
 
     public override void OnConnectedToMaster()

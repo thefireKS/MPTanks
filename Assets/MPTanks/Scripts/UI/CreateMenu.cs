@@ -16,6 +16,8 @@ public class CreateMenu : MonoBehaviour
     
     public void CreateRoom()
     {
+        MainMenu.FixConnection();
+        
         if (createField.text == null) return;
         
         RoomOptions roomOptions = new RoomOptions();

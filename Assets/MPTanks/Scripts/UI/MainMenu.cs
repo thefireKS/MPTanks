@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public void JoinRoom()
     {
+        FixConnection();
+        
         if(joinField.text == null) return;
         
         PhotonNetwork.JoinRoom(joinField.text);
@@ -21,6 +23,8 @@ public class MainMenu : MonoBehaviourPunCallbacks
     
     public void QuickMatch()
     {
+        FixConnection();
+        
         string randomRoomcode = RandomString(8);
         int randomMap = Random.Range(0,3);
         Debug.Log($"Map is gonna be {randomMap}");
@@ -49,6 +53,15 @@ public class MainMenu : MonoBehaviourPunCallbacks
         }
 
         return result;
+    }
+
+    public static void FixConnection()
+    {
+        if (!PhotonNetwork.IsConnected)    
+        {    
+            print("Connecting to server..");    
+            PhotonNetwork.ConnectUsingSettings();    
+        }
     }
 
 
